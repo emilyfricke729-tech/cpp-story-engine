@@ -1,0 +1,867 @@
+# Sucht & Schicksal - Story File
+# Format:
+#   NODE <id>
+#   NEXT <id>          (fuer Nodes ohne Choices)
+#   STATS <stress> <aggression> <trauma> <selfworth> <addiction>
+#   DE_TEXT
+#   ...mehrzeiliger Text...
+#   END
+#   EN_TEXT
+#   ...mehrzeiliger Text...
+#   END
+#   CHOICE <nextNode> <dStress> <dAgg> <dTrauma> <dSelf> <dAdd> <setFamily>
+#   DE: Deutscher Auswahltext
+#   EN: English choice text
+#   END_CHOICE
+#   END_NODE
+#
+# Leerzeilen und Zeilen die mit # beginnen werden ignoriert.
+# WICHTIG: Kein Unicode - nur ASCII (ae statt ae, oe statt oe, ue statt ue, ss statt sz)
+# LOG_DE und LOG_EN: optionaler Tagebuch-Eintrag wenn diese Node betreten wird
+
+NODE 0
+NEXT -1
+DE_TEXT
+Waehle deine Sprache:
+END
+EN_TEXT
+Choose your language:
+END
+CHOICE 1 0 0 0 0 0 0
+DE: [1] Deutsch
+EN: [1] Deutsch
+END_CHOICE
+CHOICE 1 0 0 0 0 0 0
+DE: [2] English
+EN: [2] English
+END_CHOICE
+END_NODE
+
+NODE 1
+NEXT 2
+DE_TEXT
+- - - - - - - - - - - - - - - -
+        TRIGGER WARNING
+- - - - - - - - - - - - - - - -
+
+Dieses Spiel thematisiert Mobbing,
+Sucht, emotionalen Missbrauch
+und psychische Belastung.
+
+[ ENTER ] Ich bin bereit
+END
+EN_TEXT
+- - - - - - - - - - - - - - - -
+        TRIGGER WARNING
+- - - - - - - - - - - - - - - -
+
+This game deals with bullying,
+addiction, emotional abuse
+and mental health struggles.
+
+[ ENTER ] I am ready
+END
+END_NODE
+
+NODE 2
+NEXT -1
+DE_TEXT
+--- KAPITEL 1: Die Familie ---
+
+Jeder Mensch beginnt irgendwo.
+Waehle deinen Hintergrund:
+END
+EN_TEXT
+--- CHAPTER 1: Family ---
+
+Everyone starts somewhere.
+Choose your background:
+END
+CHOICE 10 0 0 0 0 0 1
+DE: [1] Alleinerziehende Mutter
+EN: [1] Single Mother
+END_CHOICE
+CHOICE 20 0 0 0 0 0 2
+DE: [2] Die perfekte Fassade
+EN: [2] The Perfect Facade
+END_CHOICE
+CHOICE 30 0 0 0 0 0 3
+DE: [3] Grossfamilie
+EN: [3] Big Family
+END_CHOICE
+CHOICE 40 0 0 0 0 0 4
+DE: [4] Kaputtes Zuhause
+EN: [4] Broken Home
+END_CHOICE
+END_NODE
+
+# ── FAMILIE 1: Alleinerziehende Mutter ──────────────────────────
+
+NODE 10
+NEXT 11
+STATS 5 0 3 -3 0
+LOG_DE Du waehlst: Alleinerziehende Mutter. Du lernst frueh, alleine zu sein.
+LOG_EN You choose: Single Mother. You learn early how to be alone.
+DE_TEXT
+[ Deine Geschichte ]
+
+Deine Mutter arbeitet. Immer.
+Fruehstueck? Ein Zettel auf dem Tisch.
+'Bitte selbst machen. Bis heute Abend. - Mama'
+
+Du bist sechs Jahre alt.
+Du weisst schon wie die Mikrowelle funktioniert.
+END
+EN_TEXT
+[ Your Story ]
+
+Your mother works. Always.
+Breakfast? A note on the table.
+'Please make it yourself. Back tonight. - Mom'
+
+You are six years old.
+You already know how the microwave works.
+END
+END_NODE
+
+NODE 11
+NEXT 12
+STATS 5 0 4 -4 0
+LOG_DE Jeder Nachmittag gleich. Fernseher. Pizza. Warten.
+LOG_EN Every afternoon the same. TV. Pizza. Waiting.
+DE_TEXT
+Nachmittage.
+
+Schule ist aus. Du gehst alleine nach Hause.
+Schlussel unter der Fussmatte.
+Schuhe aus. Rucksack hin. Fernseher an.
+
+Zeichentrick bis es dunkel wird.
+Dann Tiefkuehlpizza. Dann schlafen.
+
+Das ist jeden Tag so.
+Du findest es normal.
+END
+EN_TEXT
+Afternoons.
+
+School is out. You walk home alone.
+Key under the mat.
+Shoes off. Bag down. TV on.
+
+Cartoons until it gets dark.
+Then frozen pizza. Then sleep.
+
+This is every day.
+You think it's normal.
+END
+END_NODE
+
+NODE 12
+NEXT 13
+STATS 6 0 5 -5 0
+LOG_DE Die Regeln deiner Mutter: Kein draussen nach 17 Uhr. Keine Freunde mit rein.
+LOG_EN Your mother's rules: No outside after 5pm. No friends inside.
+DE_TEXT
+Deine Mutter liebt dich.
+Das weisst du.
+
+Aber ihre Angst ist groesser als ihre Zeit.
+
+Kein Spielen draussen nach 17 Uhr.
+Keine Uebernachtungen bei Freunden.
+Keine fremden Kinder mit rein.
+Handy immer erreichbar.
+
+Die Welt da draussen ist gefaehrlich.
+Du glaubst ihr.
+END
+EN_TEXT
+Your mother loves you.
+You know that.
+
+But her fear is bigger than her time.
+
+No playing outside after 5pm.
+No sleepovers at friends.
+No other kids inside.
+Phone always reachable.
+
+The world out there is dangerous.
+You believe her.
+END
+END_NODE
+
+NODE 13
+NEXT 50
+STATS -3 0 0 3 0
+LOG_DE Dein 12. Geburtstag. Nur ihr zwei. Sie meint es ehrlich.
+LOG_EN Your 12th birthday. Just the two of you. She means well.
+DE_TEXT
+Heute bist du zwoelf.
+
+Deine Mutter hat gestern Nacht noch schnell
+eine Torte vom Supermarkt gekauft.
+Sie singt 'Happy Birthday' - muede, aber echt.
+
+Zum Mittagessen seid ihr alleine.
+Keine Party. Keine Freunde eingeladen.
+'Das naechste Jahr', sagt sie.
+
+Du laechelst und sagst: 'Okay.'
+Du meinst es sogar so.
+
+Jetzt beginnt ein neues Kapitel.
+END
+EN_TEXT
+Today you are twelve.
+
+Your mother rushed out last night
+to grab a cake from the supermarket.
+She sings 'Happy Birthday' - tired, but genuine.
+
+Lunch is just the two of you.
+No party. No friends invited.
+'Next year,' she says.
+
+You smile and say: 'Okay.'
+You even mean it.
+
+Now a new chapter begins.
+END
+END_NODE
+
+# ── FAMILIE 2: Die perfekte Fassade ─────────────────────────────
+
+NODE 20
+NEXT 21
+STATS 0 0 0 2 0
+LOG_DE Du waehlst: Die perfekte Fassade. Nach aussen alles perfekt.
+LOG_EN You choose: The Perfect Facade. Everything perfect on the outside.
+DE_TEXT
+[ Deine Geschichte ]
+
+Euer Haus ist das schoenste in der Strasse.
+Grosser Garten. Neue Autos. Weihnachten leuchtet
+das ganze Viertel durch eure Lichterketten.
+
+Deine Eltern organisieren Strassenfeste.
+Spendenlaeufe. Schulkonzerte.
+Alle kennen sie. Alle moegen sie.
+
+Nach aussen ist eure Familie ein Vorbild.
+END
+EN_TEXT
+[ Your Story ]
+
+Your house is the nicest on the street.
+Big garden. New cars. At Christmas the whole
+neighbourhood glows from your fairy lights.
+
+Your parents organise street parties.
+Charity runs. School concerts.
+Everyone knows them. Everyone likes them.
+
+From the outside your family is a role model.
+END
+END_NODE
+
+NODE 21
+NEXT 22
+STATS 8 0 8 -4 3
+LOG_DE Zuhause der Horror. Leon kommt nachts. Keiner spricht darueber.
+LOG_EN Home is a nightmare. Leon comes home at night. Nobody speaks about it.
+DE_TEXT
+Zuhause ist es anders.
+
+Dein Bruder Leon - sieben Jahre aelter als du -
+kommt nachts nach Hause.
+Laute Stimmen. Geschmeissene Tueren.
+
+Du liegst im Bett und hoerst alles.
+Eltern schreien. Leon schreit zurueck.
+Dann Stille.
+
+Beim Fruehstueck redet niemand darueber.
+Nie.
+END
+EN_TEXT
+At home it's different.
+
+Your brother Leon - seven years older than you -
+comes home at night.
+Loud voices. Slammed doors.
+
+You lie in bed and hear everything.
+Parents shout. Leon shouts back.
+Then silence.
+
+At breakfast nobody talks about it.
+Never.
+END
+END_NODE
+
+NODE 22
+NEXT 23
+STATS 8 6 5 -8 0
+LOG_DE Dauerkritik. Gut ist Mittelmass. Was du bist reicht nie.
+LOG_EN Constant criticism. Good is average. What you are is never enough.
+DE_TEXT
+Du bist acht.
+Du bringst ein Bild mit nach Hause - Note: Gut.
+
+Vater: 'Gut ist Mittelmass. Du kannst mehr.'
+Mutter korrigiert deine Haltung am Tisch.
+Dein Lachen ist zu laut auf dem Fest.
+Deine Klamotten sitzen nicht perfekt.
+
+Du lernst: was du bist, reicht nie.
+Was du zeigst, muss immer stimmen.
+END
+EN_TEXT
+You are eight.
+You bring a drawing home - grade: Good.
+
+Father: 'Good is average. You can do more.'
+Mother corrects your posture at the table.
+Your laugh is too loud at the party.
+Your clothes don't sit right.
+
+You learn: what you are is never enough.
+What you show must always be perfect.
+END
+END_NODE
+
+NODE 23
+NEXT 50
+STATS 6 0 7 -3 0
+LOG_DE Dein 12. Geburtstag. Grosses Fest. Leon fehlt. Du klopfst nicht an.
+LOG_EN Your 12th birthday. Big party. Leon missing. You don't knock.
+DE_TEXT
+Du bist zwoelf. Heute ist dein Geburtstag.
+
+Grosses Fest. Dreissig Gaeste. Buffet.
+Deine Mutter laechelt und macht Fotos.
+Dein Vater haelt eine kleine Rede.
+
+Leon erscheint nicht.
+Niemand erwaehnt ihn.
+
+Spaeter - alle sind weg - hoerst du ihn
+durch die Wand. Er weint.
+Oder schlaeft er einfach?
+
+Du bist dir nicht sicher.
+Du klopfst nicht an.
+END
+EN_TEXT
+You are twelve. Today is your birthday.
+
+Big party. Thirty guests. Buffet.
+Your mother smiles and takes photos.
+Your father gives a small speech.
+
+Leon doesn't show up.
+Nobody mentions him.
+
+Later - everyone is gone - you hear him
+through the wall. He's crying.
+Or maybe just sleeping?
+
+You're not sure.
+You don't knock.
+END
+END_NODE
+
+# ── FAMILIE 3: Grossfamilie ──────────────────────────────────────
+
+NODE 30
+NEXT 50
+STATS 10 5 5 -8 0
+LOG_DE Du waehlst: Grossfamilie. Immer Laerm. Niemand hoert dir zu.
+LOG_EN You choose: Big Family. Always noise. Nobody listens.
+DE_TEXT
+Fuenf Kinder. Drei Zimmer. Immer Laerm.
+Du versuchst zu reden - niemand hoert zu.
+Du lernst: Probleme loest man alleine.
+Oder man lernt, sie zu vergessen.
+END
+EN_TEXT
+Five kids. Three rooms. Always noise.
+You try to speak - nobody listens.
+You learn: you solve problems alone.
+Or you learn to forget them.
+END
+END_NODE
+
+# ── FAMILIE 4: Kaputtes Zuhause ──────────────────────────────────
+
+NODE 40
+NEXT 50
+STATS 15 8 15 -12 5
+LOG_DE Du waehlst: Kaputtes Zuhause. Schatten. Bruellen. Du versteckst dich.
+LOG_EN You choose: Broken Home. Shadows. Shouting. You hide.
+DE_TEXT
+Schatten an der Wand. Lautes Bruellen.
+Eine zerbrochene Flasche liegt auf dem Boden.
+
+Du versteckst dich unter dem Bett
+und haeltst dir die Ohren zu.
+
+Irgendwann hoert es auf.
+Es hoert nie wirklich auf.
+END
+EN_TEXT
+Shadows on the wall. Loud shouting.
+A broken bottle lies on the floor.
+
+You hide under the bed
+and cover your ears.
+
+Eventually it stops.
+It never really stops.
+END
+END_NODE
+
+# ── KAPITEL 2 ────────────────────────────────────────────────────
+
+NODE 50
+NEXT 60
+LOG_DE Vier Jahre spaeter. Du bist sechzehn.
+LOG_EN Four years later. You are sixteen.
+DE_TEXT
+Vier Jahre spaeter.
+
+- - - - - - - - - - - - - - -
+   KAPITEL 2: Ein Morgen
+- - - - - - - - - - - - - - -
+
+Du bist sechzehn.
+Es ist kurz vor sieben Uhr morgens.
+END
+EN_TEXT
+Four years later.
+
+- - - - - - - - - - - - - - -
+     CHAPTER 2: A Morning
+- - - - - - - - - - - - - - -
+
+You are sixteen.
+It's just before seven in the morning.
+END
+END_NODE
+
+NODE 60
+NEXT -1
+DE_TEXT
+Im Badezimmer.
+Das Licht summt. Der Spiegel zeigt dich.
+
+Was tust du?
+END
+EN_TEXT
+In the bathroom.
+The light hums. The mirror shows you.
+
+What do you do?
+END
+CHOICE 61 0 0 5 -8 0 0
+DE: [1] Licht aus. Du ertraegst den Anblick nicht.
+EN: [1] Light off. You can't stand the sight.
+END_CHOICE
+CHOICE 61 3 0 0 0 0 0
+DE: [2] Augenringe abdecken. Maske aufsetzen.
+EN: [2] Cover dark circles. Put on a mask.
+END_CHOICE
+END_NODE
+
+NODE 61
+NEXT -1
+DE_TEXT
+Was ziehst du an?
+END
+EN_TEXT
+What do you wear?
+END
+CHOICE 62 0 0 0 0 0 0
+DE: [1] Weiter Hoodie - verschwinden wollen
+EN: [1] Oversized hoodie - wanting to disappear
+END_CHOICE
+CHOICE 62 0 0 0 0 0 0
+DE: [2] Etwas Auffaelliges - gesehen werden
+EN: [2] Something flashy - wanting to be seen
+END_CHOICE
+CHOICE 62 0 0 0 0 0 0
+DE: [3] Die Sachen von gestern
+EN: [3] Yesterday's clothes
+END_CHOICE
+END_NODE
+
+# Node 62 ist ein Router - wird durch resolveNode aufgeloest
+NODE 62
+NEXT 70
+END_NODE
+
+# ── KUECHE ───────────────────────────────────────────────────────
+
+NODE 70
+NEXT 75
+STATS 4 0 0 -2 0
+LOG_DE Leere Kueche. Nur ein Zettel. Kein Fruehstueck.
+LOG_EN Empty kitchen. Only a note. No breakfast.
+DE_TEXT
+Leere Kueche.
+Ein Zettel auf dem Tisch:
+'Bin auf Arbeit. Kauf dir was zum Fruehstueck.'
+
+Kein Teller. Kein Glas Wasser.
+Nur du und die Stille.
+END
+EN_TEXT
+Empty kitchen.
+A note on the table:
+'At work. Buy yourself something for breakfast.'
+
+No plate. No glass of water.
+Just you and the silence.
+END
+END_NODE
+
+NODE 71
+NEXT 75
+STATS 5 3 0 -3 0
+LOG_DE Makellose Kueche. Nur ein Befehl auf dem Zettel. Keine Waerme.
+LOG_EN Immaculate kitchen. Only a command on the note. No warmth.
+DE_TEXT
+Die Kueche ist makellos.
+Granit. Edelstahl. Alles an seinem Platz.
+
+Ein Zettel auf der Insel:
+'Montag bis Freitag: Schule, dann direkt zum Sport.
+ Keine Ausnahmen. - Mama'
+
+Keine Gutenmorgen-Nachricht.
+Kein Fruehstueck vorbereitet.
+Nur der Zettel.
+END
+EN_TEXT
+The kitchen is immaculate.
+Granite. Stainless steel. Everything in its place.
+
+A note on the island:
+'Monday to Friday: school, then straight to training.
+ No exceptions. - Mom'
+
+No good-morning message.
+No breakfast prepared.
+Just the note.
+END
+END_NODE
+
+NODE 73
+NEXT 75
+STATS 7 0 3 -3 0
+LOG_DE Chaos am Morgen. Unsichtbar im Laerm der anderen.
+LOG_EN Chaos in the morning. Invisible in the noise of others.
+DE_TEXT
+Chaos. Geschwister schreien.
+Eltern rennen an dir vorbei.
+Jemand schmeisst eine Tuer.
+
+Du bist unsichtbar im Laerm.
+Das ist normal. Das war immer so.
+END
+EN_TEXT
+Chaos. Siblings screaming.
+Parents rushing past you.
+Someone slams a door.
+
+You are invisible in the noise.
+This is normal. It always was.
+END
+END_NODE
+
+NODE 74
+NEXT 75
+STATS 8 0 6 -4 3
+LOG_DE Vater auf dem Sofa. Flasche leer. Er sieht dich nicht.
+LOG_EN Father on the sofa. Bottle empty. He doesn't see you.
+DE_TEXT
+Dein Vater liegt auf dem Sofa.
+Leere Flasche auf dem Boden.
+Er starrt die Decke an - sagt nichts.
+
+Du gehst an ihm vorbei.
+Er nimmt dich nicht wahr.
+Das ist inzwischen besser als das Gegenteil.
+END
+EN_TEXT
+Your father lies on the sofa.
+Empty bottle on the floor.
+He stares at the ceiling - says nothing.
+
+You walk past him.
+He doesn't notice you.
+At this point that's better than the alternative.
+END
+END_NODE
+
+NODE 75
+NEXT 76
+LOG_DE Du verlaesst das Haus. Die Tuer faellt ins Schloss.
+LOG_EN You leave the house. The door clicks shut.
+DE_TEXT
+Du verlaesst das Haus.
+Die Tuer faellt ins Schloss.
+
+Draussen ist es noch kuehl.
+Du atmest durch.
+
+Schule. Jeden Tag Schule.
+END
+EN_TEXT
+You leave the house.
+The door clicks shut.
+
+Outside it's still cool.
+You breathe through it.
+
+School. School every day.
+END
+END_NODE
+
+# Node 76 ist ein Router - wird durch resolveNode aufgeloest
+NODE 76
+NEXT 90
+END_NODE
+
+# ── SCHULFLUR ────────────────────────────────────────────────────
+
+NODE 80
+NEXT 90
+STATS 8 0 6 -6 0
+LOG_DE Kopf unten im Flur. Jemand rempelt dich. Du sagst nichts.
+LOG_EN Head down in the hallway. Someone shoves you. You say nothing.
+DE_TEXT
+Du gehst mit gesenktem Kopf durch den Flur.
+Jemand rempelt dich an. Gelaechter.
+
+Du sagst nichts. Du schaust nicht hoch.
+Wenn du unsichtbar bist, trifft es weniger.
+END
+EN_TEXT
+You walk through the hallway with your head down.
+Someone shoves you. Laughter.
+
+You say nothing. You don't look up.
+If you're invisible, it hurts less.
+END
+END_NODE
+
+NODE 81
+NEXT 90
+STATS 5 0 3 -4 0
+LOG_DE Letzte Reihe. Handy. Niemand spricht mit dir. Du zaehlst Minuten.
+LOG_EN Back row. Phone. Nobody talks to you. You count minutes.
+DE_TEXT
+Du setzt dich in die letzte Reihe.
+Niemand spricht mit dir.
+Du starrst auf dein Handy - als ob du etwas liest.
+
+Du liest nichts.
+Du zaehlst einfach die Minuten.
+END
+EN_TEXT
+You sit down in the back row.
+Nobody speaks to you.
+You stare at your phone - as if you're reading something.
+
+You're reading nothing.
+You're just counting minutes.
+END
+END_NODE
+
+NODE 82
+NEXT 83
+STATS 6 8 0 -3 0
+LOG_DE Perfektes Laecheln im Flur. Hinter dir wird getuschelt. Etwas brodelt.
+LOG_EN Perfect smile in the hallway. Whispers behind you. Something simmers.
+DE_TEXT
+Du gehst den Flur entlang. Die Menge teilt sich.
+Jemand ruft deinen Namen. Du laechelst.
+
+Das perfekte Laecheln. Geobt seit Jahren.
+
+Hinter dir tuscheln zwei Maedchen.
+Du hoerst deinen Namen - anders betont.
+Du drehst dich nicht um.
+
+Drinnen brodelt etwas.
+Heute wird jemand bezahlen.
+END
+EN_TEXT
+You walk down the hallway. The crowd parts.
+Someone calls your name. You smile.
+
+The perfect smile. Practiced for years.
+
+Behind you two girls whisper.
+You hear your name - with a different tone.
+You don't turn around.
+
+Something simmers inside.
+Today someone will pay for it.
+END
+END_NODE
+
+# ── MOBBING ──────────────────────────────────────────────────────
+
+NODE 83
+NEXT -1
+DE_TEXT
+In der Pause. Toilette. Nur ihr drei.
+Marie - still, neue Schuhe, falscher Typ.
+
+Deine Crew wartet auf dein Zeichen.
+Was machst du?
+END
+EN_TEXT
+Break time. Bathroom. Just the three of you.
+Marie - quiet, new shoes, wrong type.
+
+Your crew waits for your signal.
+What do you do?
+END
+CHOICE 84 -3 5 4 -5 0 0
+DE: [1] Ihr Handy wegnehmen und laut vorlesen
+EN: [1] Take her phone and read it out loud
+END_CHOICE
+CHOICE 85 -2 4 3 -4 0 0
+DE: [2] Sie vor allen blossstellen
+EN: [2] Publicly humiliate her
+END_CHOICE
+CHOICE 86 0 2 5 -2 0 0
+DE: [3] Nur dastehen und starren
+EN: [3] Just stand there and stare
+END_CHOICE
+END_NODE
+
+NODE 84
+NEXT 90
+LOG_DE Du hast ihr Handy genommen und alles vorgelesen. Sie erstarrte. Du fuehltest dich leer.
+LOG_EN You took her phone and read everything out loud. She froze. You felt hollow.
+DE_TEXT
+Ihre Nachrichten. Ihre Geheimnisse. Laut vorgelesen.
+Gelaechter hallt von den Kacheln.
+Marie starrt auf den Boden. Sie weint nicht.
+Schlimmer - sie erstarrt einfach.
+
+Du gibst ihr das Handy zurueck.
+Laechelst. 'Kein Stress.'
+
+Auf dem Weg raus: du fuehlst dich leer.
+Aber das sagst du dir nicht.
+END
+EN_TEXT
+Her messages. Her secrets. Read out loud.
+Laughter echoes off the tiles.
+Marie stares at the floor. She doesn't cry.
+Worse - she simply freezes.
+
+You hand the phone back.
+Smile. 'No stress.'
+
+On the way out: you feel hollow.
+But you don't tell yourself that.
+END
+END_NODE
+
+NODE 85
+NEXT 90
+LOG_DE Du hast sie blossgstellt. Marie ging einfach raus. Nachts liegt es irgendwo.
+LOG_EN You humiliated her. Marie just walked out. At night it sits somewhere.
+DE_TEXT
+Du erzaehlst der Gruppe, was du ueber sie weisst.
+Kleinkram. Aber in der richtigen Stimmlage - vernichtend.
+
+Marie sagt kein Wort.
+Geht einfach raus.
+
+Heute Abend wirst du nicht daran denken.
+Morgen schon gar nicht.
+Aber nachts liegt es irgendwo.
+END
+EN_TEXT
+You tell the group what you know about her.
+Small things. But in the right tone - devastating.
+
+Marie says nothing.
+Just walks out.
+
+Tonight you won't think about it.
+Tomorrow even less.
+But at night it sits somewhere.
+END
+END_NODE
+
+NODE 86
+NEXT 90
+LOG_DE Du hast nichts getan. Aber auch nichts gestoppt. Beides zaehlt.
+LOG_EN You did nothing. But you stopped nothing either. Both count.
+DE_TEXT
+Du sagst nichts.
+Du stehst einfach da - und schaust.
+Der Blick reicht.
+
+Marie weicht aus. Geht an dir vorbei.
+Deine Crew nickt anerkennend.
+
+Du hast nichts getan.
+Aber du hast auch nichts gestoppt.
+Beides zaehlt.
+END
+EN_TEXT
+You say nothing.
+You just stand there - and stare.
+The look is enough.
+
+Marie flinches. Moves past you.
+Your crew nods approvingly.
+
+You did nothing.
+But you stopped nothing either.
+Both count.
+END
+END_NODE
+
+# ── ENDE ─────────────────────────────────────────────────────────
+
+NODE 90
+NEXT -1
+LOG_DE Der Tag faengt an. Aber irgendetwas weiss: So geht das nicht weiter.
+LOG_EN The day begins. But something knows: This can't go on.
+DE_TEXT
+Der Tag hat noch nicht richtig angefangen.
+
+Aber irgendetwas in dir weiss:
+So geht das nicht weiter.
+
+- - - - - - - - - - - - - - -
+    Fortsetzung folgt...
+- - - - - - - - - - - - - - -
+
+[ ENTER ] Beenden
+END
+EN_TEXT
+The day has barely started.
+
+But something inside you knows:
+This can't go on.
+
+- - - - - - - - - - - - - - -
+     To be continued...
+- - - - - - - - - - - - - - -
+
+[ ENTER ] Quit
+END
+END_NODE
